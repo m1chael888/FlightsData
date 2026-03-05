@@ -1,6 +1,7 @@
 
 using FlightsData.Data;
 using Microsoft.EntityFrameworkCore;
+using FlightsData.Services;
 
 namespace FlightsData
 {
@@ -15,6 +16,7 @@ namespace FlightsData
             builder.Services.AddControllers();
 
             builder.Services.AddDbContext<FlightsContext>(x => x.UseSqlite(builder.Configuration.GetConnectionString("ConnectionString")));
+            builder.Services.AddScoped<IFlightService, FlightService>();
 
             var app = builder.Build();
 
