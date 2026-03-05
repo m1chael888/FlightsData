@@ -1,10 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using FlightsData.Models;
 
 namespace FlightsData.Data
 {
-    public class FlightsContext(DbContextOptions options) : DbContext
+    public class FlightsContext : DbContext
     {
+        public FlightsContext(DbContextOptions options) : base(options)
+        {
 
+        }
+
+        public DbSet<Flight> Flights { get; set; }
     }
 }
