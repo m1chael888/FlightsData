@@ -1,4 +1,7 @@
 
+using FlightsData.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace FlightsData
 {
     public class Program
@@ -10,6 +13,8 @@ namespace FlightsData
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddControllers();
+
+            builder.Services.AddDbContext<FlightsContext>(x => x.UseSqlite(builder.Configuration.GetConnectionString("ConnectionString")));
 
             var app = builder.Build();
 
