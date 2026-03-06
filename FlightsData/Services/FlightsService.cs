@@ -3,7 +3,7 @@ using FlightsData.Models;
 
 namespace FlightsData.Services
 {
-    public interface IFlightService
+    public interface IFlightsService
     {
         public List<Flight> GetAllFlights();
         public Flight? GetFlightById(int id);
@@ -11,10 +11,10 @@ namespace FlightsData.Services
         public Flight UpdateFlight(int id, Flight updatedFlight);
         public string? DeleteFlight(int id);
     }
-    public class FlightService : IFlightService
+    public class FlightsService : IFlightsService
     {
         private readonly FlightsContext _dbContext;
-        public FlightService(FlightsContext DbContext)
+        public FlightsService(FlightsContext DbContext)
         {
             _dbContext = DbContext;
         }

@@ -16,7 +16,7 @@ namespace FlightsData
             builder.Services.AddControllers();
 
             builder.Services.AddDbContext<FlightsContext>(x => x.UseSqlite(builder.Configuration.GetConnectionString("ConnectionString")));
-            builder.Services.AddScoped<IFlightService, FlightService>();
+            builder.Services.AddScoped<IFlightsService, FlightsService>();
 
             var app = builder.Build();
 
